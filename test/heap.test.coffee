@@ -98,3 +98,10 @@ describe 'Heap#updateItem', ->
     c.x = 0
     Heap.updateItem(h, c, cmp)
     Heap.pop(h, cmp).should.eql(c)
+
+describe 'Heap#@@iterator', ->
+  it 'should interate', ->
+    h = new Heap
+    h.push(1)
+    `for (var i of h) {}`
+    i.should.eql(1)

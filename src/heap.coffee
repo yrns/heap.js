@@ -156,6 +156,9 @@ class Heap
 
   constructor: (@cmp=defaultCmp) ->
     @nodes = []
+    # Make heaps iterable.
+    @[Symbol.iterator] = ->
+        yield @pop()
 
   push: (x) ->
     heappush(@nodes, x, @cmp)
@@ -215,4 +218,3 @@ class Heap
   else
     root.Heap = factory()
 ) @, -> Heap
-
